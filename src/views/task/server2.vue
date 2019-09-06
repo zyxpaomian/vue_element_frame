@@ -1,5 +1,11 @@
 <template>
-  <div>服务器子页面001</div>
+<div>
+<br>
+<el-tabs type="border-card">
+  <el-tab-pane label="实时任务">
+  </el-tab-pane>
+</el-tabs>
+</div>
 </template>
 <script>
 export default {
@@ -12,6 +18,6 @@ export default {
 }
 
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 </style>

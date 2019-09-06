@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-axios.defaults.timeout = 5000
+axios.defaults.timeout = 10000
 axios.defaults.baseURL = ''
 
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
     // const token = getCookie('名称');
-    config.data = JSON.stringify(config.data)
+    //config.data = JSON.stringify(config.data)
     const TOKEN = '4c6ed84fe2ba465db6933e82c114f9a6'
     config.headers = {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export function get (url, params = {}, errmsg) {
         resolve(response.data)
       })
       .catch(err => {
-        this.$message(errmsg)
+        this.$message.error(errmsg)
         this.loading = false
         reject(err)
       })
@@ -78,7 +78,7 @@ export function post (url, data = {}, errmsg) {
       .then(response => {
         resolve(response.data)
       }, err => {
-        this.$message(errmsg)
+        this.$message.error(errmsg)
         this.loading = false
         reject(err)
       })

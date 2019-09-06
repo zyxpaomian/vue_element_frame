@@ -27,66 +27,44 @@ export const fixedRouter = [
 
 // 需要权限判断展示的路由
 export const permissionRouter = [
-  {
-  path: "/setting",
-  component: resolve => require(['../components/home.vue'], resolve),
-  name: "设置",
-  meta: {
-    title: "设置",
-    icon: "el-icon-s-tools",
-    roles: ['admin']
-  },
-  // 二级菜单写法
-  children: [{
-      path: "usermgt",
-      name: "用户管理",
-      component: resolve => require(['../views/setting/usermgt.vue'], resolve),
-      meta: {
-        title: "用户管理",
-        icon: "el-icon-user",
-        roles: ['admin']
-      }
-    },
-    {
-      path: "schedule",
-      name: "计划任务配置",
-      component: resolve => require(['../views/setting/schedule.vue'], resolve),
-      meta: {
-        title: "计划任务配置",
-        icon: "el-icon-date",
-        roles: ['admin']
-      }
-    }
-  ]
-},
 {
-  path: "/server",
+  path: "/task",
   component: resolve => require(['../components/home.vue'], resolve),
-  name: "服务器管理",
+  name: "任务管理",
   meta: {
-    title: "服务器管理",
-    icon: "el-icon-monitor",
+    title: "任务管理",
+    icon: "el-icon-data-line",
     roles: ['admin','sa_user']
   },
   // 二级菜单写法
   children: [{
-      path: "servermgt1",
-      name: "服务器子项1",
-      component: resolve => require(['../views/server/server1.vue'], resolve),
+      path: "taskexec",
+      name: "任务执行",
+      component: resolve => require(['../views/task/taskexec.vue'], resolve),
       meta: {
-        title: "服务器子项1",
-        icon: "el-icon-monitor",
+        title: "任务执行",
+        icon: "el-icon-position",
         roles: ['admin','sa_user']
       }
     },
     {
       path: "servermgt2",
       name: "服务器子项2",
-      component: resolve => require(['../views/server/server2.vue'], resolve),
+      component: resolve => require(['../views/task/server2.vue'], resolve),
       meta: {
         title: "服务器子项2",
         icon: "el-icon-monitor",
         roles: ['admin','sa_user']
+      }
+    },
+    {
+      path: "schedule",
+      name: "计划任务配置",
+      component: resolve => require(['../views/task/schedule.vue'], resolve),
+      meta: {
+        title: "计划任务配置",
+        icon: "el-icon-date",
+        roles: ['admin']
       }
     }
   ]
@@ -122,7 +100,61 @@ export const permissionRouter = [
       }
     }
   ]
-}
+},
+{
+  path: "/backup",
+  component: resolve => require(['../components/home.vue'], resolve),
+  name: "",
+  meta: {
+    title: "备份管理",
+    icon: "el-icon-upload",
+    roles: ['admin','sa_user']
+  },
+  // 二级菜单写法
+  children: [{
+      path: "backup1",
+      name: "备份子项1",
+      component: resolve => require(['../views/backup/backup1.vue'], resolve),
+      meta: {
+        title: "备份子项1",
+        icon: "el-icon-upload",
+        roles: ['admin','sa_user']
+      }
+    },
+    {
+      path: "backup2",
+      name: "备份子项2",
+      component: resolve => require(['../views/backup/backup2.vue'], resolve),
+      meta: {
+        title: "备份子项2",
+        icon: "el-icon-coin",
+        roles: ['admin','sa_user']
+      }
+    }
+  ]
+},
+{
+  path: "/setting",
+  component: resolve => require(['../components/home.vue'], resolve),
+  name: "设置",
+  meta: {
+    title: "设置",
+    icon: "el-icon-s-tools",
+    roles: ['admin']
+  },
+  // 二级菜单写法
+  children: [{
+      path: "usermgt",
+      name: "用户管理",
+      component: resolve => require(['../views/setting/usermgt.vue'], resolve),
+      meta: {
+        title: "用户管理",
+        icon: "el-icon-user",
+        roles: ['admin']
+      }
+    }
+  ]
+},
 ]
 
 export default new Router({
