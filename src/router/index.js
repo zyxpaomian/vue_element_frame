@@ -23,6 +23,12 @@ export const fixedRouter = [
       }
     }]
   },
+  {
+    path: '/404',
+    component: resolve => require(['../components/404.vue'], resolve),
+    name: '',
+    hidden: true
+},
 ]
 
 // 需要权限判断展示的路由
@@ -39,30 +45,20 @@ export const permissionRouter = [
   // 二级菜单写法
   children: [{
       path: "taskexec",
-      name: "任务执行",
+      name: "任务下发",
       component: resolve => require(['../views/task/taskexec.vue'], resolve),
       meta: {
-        title: "任务执行",
+        title: "任务下发",
         icon: "el-icon-position",
         roles: ['admin','sa_user']
       }
     },
     {
-      path: "servermgt2",
-      name: "服务器子项2",
-      component: resolve => require(['../views/task/server2.vue'], resolve),
-      meta: {
-        title: "服务器子项2",
-        icon: "el-icon-monitor",
-        roles: ['admin','sa_user']
-      }
-    },
-    {
       path: "schedule",
-      name: "计划任务配置",
+      name: "计划任务",
       component: resolve => require(['../views/task/schedule.vue'], resolve),
       meta: {
-        title: "计划任务配置",
+        title: "计划任务",
         icon: "el-icon-date",
         roles: ['admin']
       }
@@ -155,7 +151,14 @@ export const permissionRouter = [
     }
   ]
 },
+{
+  path: '*',
+  hidden: true,
+  redirect: { path: '/404' }
+}
+
 ]
+
 
 export default new Router({
   routes: fixedRouter
